@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Владимир Лепчиков — Портфолио</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        /* ============ БАЗОВЫЕ НАСТРОЙКИ ============ */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-light: #dbe9f4;
+            --bg-dark: #0a1628;
+            --bg-dark-gray: #1a2538;
+            --bg-footer: #0a1628;
+            --text-dark: #0a1628;
+            --text-light: #e8f1f8;
+            --accent-sky: #6bb6e8;
+            --accent-sky-bright: #4aa3e0;
+            --accent-deep: #1e3a5f;
+            --accent-lime: #d4ff00;
+            --gray-blue: #7a8fa6;
+            --tg-blue: #0088cc;
+            --tg-blue-light: #00b4e6;
+            --spotify-green: #1db954;
+            --border-color: rgba(10, 22, 40, 0.15);
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --avatar-bg: #c5d9eb;
+            --nav-bg: rgba(219, 233, 244, 0.85);
+            --nav-border: rgba(10, 22, 40, 0.1);
+        }
+
+        body.dark {
+            --bg-light: #0a1628;
+            --bg-dark: #061020;
+            --bg-dark-gray: #101c33;
+            --bg-footer: #061020;
+            --text-dark: #e8f1f8;
+            --text-light: #e8f1f8;
+            --accent-deep: #6bb6e8;
+            --accent-sky-bright: #6bb6e8;
+            --gray-blue: #7a8fa6;
+            --border-color: rgba(107, 182, 232, 0.2);
+            --shadow-color: rgba(0, 0, 0, 0.4);
+            --avatar-bg: #1a2538;
+            --nav-bg: rgba(10, 22, 40, 0.85);
+            --nav-border: rgba(107, 182, 232, 0.15);
+        }
+
+        body, .hero, .profile, .games, .music, footer, nav, .info-row,
+        .toggle-btn, .logo, .nav-links a {
+            transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ============ НАВИГАЦИЯ ============ */
+        nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--nav-border);
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+        .logo span {
+            font-size: 10px;
+            vertical-align: super;
+            color: var(--accent-sky-bright);
+            margin-left: 2px;
+        }
+
+        .nav-links { display: flex; gap: 35px; list-style: none; align-items: center; }
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            cursor: pointer;
+            padding-bottom: 4px;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s, color 0.3s;
+        }
+        .nav-links a:hover {
+            border-bottom-color: var(--accent-sky-bright);
+            color: var(--accent-sky-bright);
+        }
+
+        .nav-toggles { display: flex; gap: 10px; align-items: center; }
+
+        .toggle-btn {
+            background-color: var(--accent-deep);
+            border: 1px solid var(--accent-deep);
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+        }
+
+        body.dark .toggle-btn {
+            background-color: var(--accent-sky-bright);
+            border-color: var(--accent-sky-bright);
+            color: #0a1628;
+        }
+
+        .toggle-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(74, 163, 224, 0.4);
+        }
+
+        /* ============ HERO ============ */
+        .hero {
+            display: flex;
+            min-height: 70vh;
+            background-color: var(--bg-light);
+            padding-top: 80px;
+        }
+        .hero-left {
+            flex: 1;
+            padding: 60px 50px 50px 50px;
+            display: flex; flex-direction: column;
+            justify-content: center; position: relative;
+        }
+        .hero-label {
+            font-size: 10px; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--accent-deep);
+            margin-bottom: 30px; display: flex;
+            align-items: center; gap: 15px; font-weight: 500;
+        }
+        .hero-label::before {
+            content: ''; display: block;
+            width: 35px; height: 1px;
+            background-color: var(--accent-deep);
+        }
+        .hero-title {
+            font-size: clamp(45px, 7vw, 100px);
+            font-weight: 700; line-height: 0.9;
+            letter-spacing: -2.5px; text-transform: uppercase;
+            color: var(--text-dark);
+        }
+        .hero-title .accent {
+            display: block; font-family: 'Playfair Display', serif;
+            font-style: italic; font-weight: 400;
+            text-transform: none; color: var(--accent-sky-bright);
+            font-size: clamp(55px, 9vw, 120px);
+            letter-spacing: -2px; margin-top: -8px; margin-left: -3px;
+        }
+        .hero-desc {
+            margin-top: 35px; max-width: 400px;
+            font-size: 15px; color: var(--accent-deep); line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex; align-items: center;
+            gap: 12px; margin-top: 35px; flex-wrap: wrap;
+        }
+
+        .scroll-btn {
+            width: 45px; height: 45px;
+            border-radius: 50%; border: 1px solid var(--accent-deep);
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none; color: var(--accent-deep);
+            font-size: 18px; transition: all 0.3s;
+            flex-shrink: 0; cursor: pointer;
+        }
+        .scroll-btn:hover {
+            background-color: var(--accent-deep);
+            color: var(--bg-light); border-color: var(--accent-deep);
+        }
+
+        .tg-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 12px 20px; border-radius: 50px;
+            background: linear-gradient(135deg, var(--tg-blue) 0%, var(--tg-blue-light) 100%);
+            color: #fff; text-decoration: none;
+            font-size: 12px; font-weight: 600;
+            letter-spacing: 0.5px; text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+        }
+        .tg-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 136, 204, 0.5);
+        }
+
+        .mail-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 12px 20px; border-radius: 50px;
+            background-color: transparent;
+            border: 1px solid var(--accent-deep);
+            color: var(--accent-deep); text-decoration: none;
+            font-size: 12px; font-weight: 600;
+            letter-spacing: 0.5px; text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .mail-btn:hover {
+            background-color: var(--accent-deep);
+            color: var(--bg-light);
+        }
+
+        .hero-right {
+            flex: 1; background-color: transparent;
+            position: relative; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .photo-placeholder {
+            width: 100%; height: 100%;
+            background: transparent;
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+        }
+
+        .avatar-circle {
+            width: 280px; height: 280px;
+            border-radius: 50%;
+            background-color: var(--avatar-bg);
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid var(--accent-sky);
+            box-shadow: 0 20px 60px var(--shadow-color), 0 0 80px rgba(107, 182, 232, 0.15);
+            overflow: hidden; position: relative; z-index: 2;
+        }
+
+        .avatar-circle .initials-big {
+            font-size: 120px; font-weight: 700;
+            color: var(--accent-sky-bright);
+            opacity: 0.6; letter-spacing: 4px; user-select: none;
+        }
+
+        /* ФОТО В АВАТАРКЕ */
+        .avatar-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-hint {
+            position: absolute; bottom: 25px; right: 25px;
+            color: var(--gray-blue); font-size: 10px;
+            text-transform: uppercase; letter-spacing: 2px;
+            writing-mode: vertical-rl;
+        }
+        .hero-side-text {
+            position: absolute; right: 25px; top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            font-size: 10px; text-transform: uppercase;
+            letter-spacing: 3px; color: var(--gray-blue);
+            white-space: nowrap;
+        }
+
+        /* ============ ПРОФИЛЬ ============ */
+        .profile {
+            background-color: var(--bg-light);
+            padding: 120px 50px;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 50px; align-items: start;
+        }
+        .section-num {
+            font-size: 10px; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--accent-deep);
+            padding-top: 15px; font-weight: 500;
+        }
+
+        .profile-content { max-width: 900px; }
+
+        .profile-content h2 {
+            font-size: clamp(40px, 5vw, 72px);
+            font-weight: 700; line-height: 1.05;
+            letter-spacing: -2.5px; color: var(--text-dark);
+            margin-bottom: 30px;
+        }
+
+        .profile-content > p {
+            font-size: 17px; color: var(--accent-deep);
+            line-height: 1.7; margin-bottom: 50px; max-width: 720px;
+        }
+
+        .profile-info { display: flex; flex-direction: column; gap: 0; }
+        .info-row {
+            display: flex; justify-content: space-between;
+            align-items: baseline; padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+        .info-row:first-child { border-top: 1px solid var(--border-color); }
+        .info-row .label {
+            text-transform: uppercase; letter-spacing: 1.2px;
+            color: var(--gray-blue); font-size: 11px;
+        }
+        .info-row .value {
+            font-weight: 500; color: var(--text-dark); text-align: right;
+        }
+
+        /* ============ ИГРЫ ============ */
+        .games {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: 120px 50px;
+        }
+
+        .games-header {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 50px; margin-bottom: 60px; align-items: start;
+        }
+        .games-header .section-num { color: var(--text-light); padding-top: 15px; }
+        .games-header h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(34px, 5vw, 64px);
+            font-weight: 700; letter-spacing: -2px;
+            color: var(--accent-lime); line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        @media (max-width: 1280px) {
+            .games-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+        @media (max-width: 900px) {
+            .games-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 600px) {
+            .games-grid { grid-template-columns: 1fr; }
+        }
+
+        .game-card {
+            background-color: var(--bg-dark-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(107, 182, 232, 0.1);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;   /* ← добавили — убирает подчёркивание */
+            color: inherit;            /* ← добавили — сохраняет цвет текста */
+            cursor: pointer;
+        }
+        .game-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(107, 182, 232, 0.4);
+        }
+
+        .game-card:hover .game-info h4::after {
+        content: ' ↗';
+        color: var(--accent-lime);
+        }
+
+        .game-visual {
+            aspect-ratio: 16/10; position: relative;
+            overflow: hidden; background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: transform 0.5s ease;
+        }
+        .game-card:hover .game-visual { transform: scale(1.05); }
+        .game-visual::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to bottom,
+                rgba(10, 22, 40, 0.1) 0%,
+                rgba(10, 22, 40, 0.5) 60%,
+                rgba(26, 37, 56, 1) 100%);
+            z-index: 1;
+        }
+
+        .game-info {
+            padding: 18px 20px 22px;
+            position: relative; z-index: 2;
+            flex: 1; display: flex; flex-direction: column;
+            background-color: var(--bg-dark-gray);
+        }
+        .game-info h4 {
+            font-size: 15px; font-weight: 700;
+            color: var(--text-light); margin-bottom: 5px;
+            letter-spacing: -0.3px; text-transform: uppercase;
+        }
+        .game-info .genre {
+            font-size: 10px; text-transform: uppercase;
+            letter-spacing: 1.2px; color: var(--accent-sky);
+            margin-bottom: 10px; font-weight: 500;
+        }
+        .game-info p {
+            font-size: 12px; color: #a8bdd1; line-height: 1.5;
+        }
+
+        /* ============ МУЗЫКА ============ */
+        .music {
+            background-color: var(--bg-dark-gray);
+            color: var(--text-light);
+            padding: 120px 50px;
+        }
+
+        .music-header {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 50px; margin-bottom: 60px; align-items: start;
+        }
+        .music-header .section-num { color: var(--text-light); padding-top: 15px; }
+        .music-header h2 {
+            font-size: clamp(34px, 5vw, 64px);
+            font-weight: 700; letter-spacing: -2px;
+            color: var(--spotify-green); line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .music-player {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 40px;
+            background-color: rgba(10, 22, 40, 0.5);
+            border: 1px solid rgba(107, 182, 232, 0.15);
+            border-radius: 12px;
+            padding: 40px; align-items: center;
+        }
+
+        .player-controls {
+            display: flex; flex-direction: column; gap: 20px;
+        }
+
+        .track-display {
+            border-bottom: 1px solid rgba(107, 182, 232, 0.15);
+            padding-bottom: 20px;
+        }
+        .track-label {
+            font-size: 10px; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--gray-blue);
+            margin-bottom: 10px; font-weight: 500;
+        }
+        .track-title {
+            font-size: 22px; font-weight: 700;
+            color: var(--text-light);
+            letter-spacing: -0.5px; line-height: 1.2;
+            margin-bottom: 6px;
+        }
+        .track-artist {
+            font-size: 13px; text-transform: uppercase;
+            letter-spacing: 1.5px; color: var(--spotify-green);
+            font-weight: 500;
+        }
+
+        .progress-bar {
+            width: 100%; height: 6px;
+            background-color: rgba(107, 182, 232, 0.15);
+            border-radius: 3px; position: relative;
+            overflow: hidden; cursor: pointer;
+        }
+        .progress-fill {
+            height: 100%; width: 0%;
+            background: linear-gradient(90deg, var(--spotify-green) 0%, #16a34a 100%);
+            border-radius: 3px;
+            transition: width 0.1s linear;
+        }
+        .progress-time {
+            display: flex; justify-content: space-between;
+            font-size: 11px; color: var(--gray-blue);
+            margin-top: 8px; letter-spacing: 1px;
+        }
+
+        .control-buttons {
+            display: flex; align-items: center; gap: 15px;
+        }
+
+        .ctrl-btn {
+            width: 55px; height: 55px;
+            border-radius: 50%; background-color: transparent;
+            border: 1px solid rgba(107, 182, 232, 0.3);
+            color: var(--text-light);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        .ctrl-btn:hover {
+            border-color: var(--spotify-green);
+            color: var(--spotify-green);
+            transform: scale(1.05);
+        }
+
+        .ctrl-btn.play-btn {
+            width: 65px; height: 65px;
+            background: linear-gradient(135deg, var(--spotify-green) 0%, #16a34a 100%);
+            border: none; color: #fff;
+            box-shadow: 0 8px 25px rgba(29, 185, 84, 0.35);
+        }
+        .ctrl-btn.play-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 30px rgba(29, 185, 84, 0.5);
+            color: #fff;
+        }
+
+        /* ===== ГРОМКОСТЬ ===== */
+        .volume-control {
+            display: flex; align-items: center;
+            gap: 12px; padding-top: 10px;
+            border-top: 1px solid rgba(107, 182, 232, 0.15);
+            margin-top: 5px;
+        }
+
+        .volume-icon {
+            background: transparent; border: none;
+            color: var(--gray-blue); cursor: pointer;
+            padding: 4px; display: flex;
+            align-items: center; justify-content: center;
+            transition: color 0.3s; flex-shrink: 0;
+        }
+        .volume-icon:hover { color: var(--spotify-green); }
+
+        .volume-slider {
+            flex: 1; -webkit-appearance: none;
+            appearance: none; height: 3px;
+            background-color: rgba(107, 182, 232, 0.2);
+            background-image: linear-gradient(var(--spotify-green), var(--spotify-green));
+            background-repeat: no-repeat;
+            background-size: 50% 100%;
+            border-radius: 2px; outline: none;
+            cursor: pointer; transition: background-color 0.3s;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none; appearance: none;
+            width: 14px; height: 14px; border-radius: 50%;
+            background: var(--spotify-green); cursor: pointer;
+            box-shadow: 0 0 10px rgba(29, 185, 84, 0.5);
+            transition: transform 0.2s;
+        }
+        .volume-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+        .volume-slider::-moz-range-thumb {
+            width: 14px; height: 14px; border-radius: 50%;
+            background: var(--spotify-green); cursor: pointer;
+            border: none;
+            box-shadow: 0 0 10px rgba(29, 185, 84, 0.5);
+        }
+
+        .volume-value {
+            font-size: 11px; color: var(--gray-blue);
+            min-width: 35px; text-align: right;
+            letter-spacing: 0.5px; font-weight: 500;
+        }
+
+        /* ===== СПИСОК ТРЕКОВ ===== */
+        .track-list {
+            display: flex; flex-direction: column;
+            gap: 0; margin-top: 10px;
+            max-height: 220px; overflow-y: auto;
+        }
+
+        .track-item {
+            display: flex; align-items: center;
+            gap: 15px; padding: 10px 15px;
+            border-radius: 6px; cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid rgba(107, 182, 232, 0.08);
+        }
+        .track-item:last-child { border-bottom: none; }
+        .track-item:hover { background-color: rgba(107, 182, 232, 0.08); }
+        .track-item.active {
+            background-color: rgba(29, 185, 84, 0.12);
+            border-left: 2px solid var(--spotify-green);
+            padding-left: 13px;
+        }
+
+        .track-item .num {
+            font-size: 11px; color: var(--gray-blue);
+            font-weight: 500; min-width: 20px; letter-spacing: 1px;
+        }
+        .track-item.active .num { color: var(--spotify-green); }
+
+        .track-item .name {
+            font-size: 13px; color: var(--text-light);
+            font-weight: 500; flex: 1;
+            white-space: nowrap; overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .track-item.active .name { color: var(--spotify-green); }
+
+        .track-item .time {
+            font-size: 11px; color: var(--gray-blue);
+        }
+
+        /* ===== ВИЗУАЛИЗАТОР ===== */
+        .visualizer {
+            background: linear-gradient(180deg, rgba(10, 22, 40, 0.6) 0%, rgba(10, 22, 40, 0.9) 100%);
+            border-radius: 12px; height: 420px;
+            position: relative; overflow: hidden;
+            display: flex; align-items: flex-end;
+            justify-content: center; gap: 6px;
+            padding: 40px 30px;
+            border: 1px solid rgba(107, 182, 232, 0.1);
+        }
+        .visualizer::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 50% 80%, rgba(29, 185, 84, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .bar {
+            width: 8px;
+            background: linear-gradient(to top, var(--spotify-green) 0%, #4ade80 50%, #a7f3d0 100%);
+            border-radius: 4px 4px 0 0;
+            transition: height 0.15s ease;
+            position: relative; z-index: 1;
+            box-shadow: 0 0 10px rgba(29, 185, 84, 0.4);
+        }
+        .visualizer.paused .bar {
+            background: linear-gradient(to top, #4a5568 0%, #6b7280 100%);
+            box-shadow: none;
+        }
+        .visualizer.paused::before {
+            background: radial-gradient(circle at 50% 80%, rgba(107, 182, 232, 0.08) 0%, transparent 60%);
+        }
+
+        /* ============ ПОДВАЛ ============ */
+        footer {
+            background-color: var(--bg-footer);
+            color: var(--gray-blue);
+            padding: 35px 50px;
+            display: flex; justify-content: space-between;
+            align-items: center; font-size: 11px;
+            text-transform: uppercase; letter-spacing: 1px;
+            border-top: 1px solid rgba(107, 182, 232, 0.15);
+            gap: 20px; flex-wrap: wrap;
+        }
+        .footer-contacts { display: flex; gap: 20px; align-items: center; }
+        .footer-contacts a {
+            color: var(--accent-sky); text-decoration: none;
+            transition: color 0.3s;
+            display: inline-flex; align-items: center; gap: 5px;
+        }
+        .footer-contacts a:hover { color: var(--accent-sky-bright); }
+
+        /* ============ АДАПТИВ ============ */
+        @media (max-width: 1024px) {
+            .profile { grid-template-columns: 1fr; gap: 25px; }
+            .games-header, .music-header { grid-template-columns: 1fr; gap: 20px; }
+            .music-player {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+            .visualizer { height: 320px; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 14px 18px; flex-wrap: wrap; gap: 10px; }
+            .nav-links { gap: 12px; flex-wrap: wrap; }
+            .nav-links a { font-size: 10px; }
+            .toggle-btn { font-size: 10px; padding: 5px 10px; }
+            .hero { flex-direction: column; padding-top: 90px; }
+            .hero-left { padding: 40px 22px 50px; }
+            .hero-right { min-height: 40vh; padding: 40px 22px; }
+            .avatar-circle { width: 200px; height: 200px; }
+            .avatar-circle .initials-big { font-size: 80px; }
+            .profile, .games, .music { padding: 70px 22px; }
+            .hero-side-text { display: none; }
+            footer {
+                flex-direction: column; gap: 15px;
+                text-align: center; padding: 25px 22px;
+            }
+            .footer-contacts { flex-direction: column; gap: 10px; }
+        }
+
+        @media (max-width: 700px) {
+            .music-player {
+                display: flex; flex-direction: column;
+                padding: 25px 20px; gap: 25px;
+            }
+            .player-controls { order: 1; width: 100%; }
+            .visualizer {
+                order: 2; width: 100%;
+                height: 200px; gap: 4px;
+                padding: 20px 15px;
+            }
+            .bar { width: 5px; }
+            .track-title { font-size: 18px; }
+            .ctrl-btn { width: 48px; height: 48px; }
+            .ctrl-btn.play-btn { width: 55px; height: 55px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title { letter-spacing: -2px; }
+            .info-row { flex-direction: column; gap: 5px; }
+            .info-row .value { text-align: left; }
+            .hero-buttons { width: 100%; }
+            .tg-btn, .mail-btn { padding: 10px 16px; font-size: 11px; }
+            .nav-links { gap: 8px; }
+            .nav-links a { font-size: 9px; letter-spacing: 0.5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- НАВИГАЦИЯ -->
+    <nav>
+        <div class="logo" onclick="document.getElementById('hero').scrollIntoView()">ВЛ<span>•07</span></div>
+        <ul class="nav-links">
+            <li><a href="#profile" data-i18n="nav_profile">Профиль</a></li>
+            <li><a href="#games" data-i18n="nav_games">Игры</a></li>
+            <li><a href="#music" data-i18n="nav_music">Музыка</a></li>
+            <li><a href="https://t.me/Shejoku" target="_blank">Telegram ↗</a></li>
+        </ul>
+        <div class="nav-toggles">
+            <button class="toggle-btn" id="langBtn" onclick="toggleLang()">EN</button>
+            <button class="toggle-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-left">
+            <div class="hero-label" data-i18n="hero_label">Студент • Разработчик • Дизайнер</div>
+            <h1 class="hero-title">
+                <span data-i18n="hero_name">Владимир</span>
+                <span class="accent" data-i18n="hero_surname">Лепчиков</span>
+            </h1>
+            <p class="hero-desc" data-i18n="hero_desc">
+                Обычный студент в университете, что любит игры, рисование, музыку и кофе.
+            </p>
+            <div class="hero-buttons">
+                <a href="#profile" class="scroll-btn">↓</a>
+                <a href="https://t.me/Shejoku" target="_blank" class="tg-btn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
+                    Telegram
+                </a>
+                <a href="mailto:vladimerlepchikov4674@gmail.com" class="mail-btn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                        <path d="m22 7-10 5L2 7"/>
+                    </svg>
+                    Email
+                </a>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="photo-placeholder">
+                <div class="avatar-circle">
+                    <img src="Assets/Shejoku.png" alt="Владимир Лепчиков">
+                </div>
+                <div class="photo-hint" data-i18n="photo_hint">Фото • 2026</div>
+            </div>
+            <div class="hero-side-text" data-i18n="hero_side">Избранные проекты / 2024 — 2026</div>
+        </div>
+    </section>
+
+    <!-- ПРОФИЛЬ -->
+    <section class="profile" id="profile">
+        <div class="section-num" data-i18n="section_profile">01 / Профиль</div>
+        <div class="profile-content">
+            <h2 data-i18n="about_title">Обо мне</h2>
+            <p data-i18n="about_text">
+                Мне 18 лет, и я изучаю промышленный дизайн и технологии. Верю, что хороший продукт — это баланс между функциональностью и эстетикой. Родился в Якутске, сейчас живу и учусь в Санкт-Петербурге. В свободное время рисую, слушаю музыку и играю в игры.
+            </p>
+            <div class="profile-info">
+                <div class="info-row">
+                    <span class="label" data-i18n="lbl_born">Родился</span>
+                    <span class="value" data-i18n="val_born">01 октября 2007</span>
+                </div>
+                <div class="info-row">
+                    <span class="label" data-i18n="lbl_age">Возраст</span>
+                    <span class="value" data-i18n="val_age">18 лет</span>
+                </div>
+                <div class="info-row">
+                    <span class="label" data-i18n="lbl_birthplace">Место рождения</span>
+                    <span class="value" data-i18n="val_birthplace">Якутск, Республика Саха</span>
+                </div>
+                <div class="info-row">
+                    <span class="label" data-i18n="lbl_city">Город</span>
+                    <span class="value" data-i18n="val_city">Санкт-Петербург</span>
+                </div>
+                <div class="info-row">
+                    <span class="label" data-i18n="lbl_status">Статус</span>
+                    <span class="value" data-i18n="val_status">Студент 2 курса</span>
+                </div>
+                <div class="info-row">
+                    <span class="label" data-i18n="lbl_group">Группа</span>
+                    <span class="value" data-i18n="val_group">МД-20</span>
+                </div>
+                <div class="info-row">
+                    <span class="label" data-i18n="lbl_uni">Университет</span>
+                    <span class="value" data-i18n="val_uni">СПбГУПТД</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ИГРЫ -->
+    <section class="games" id="games">
+        <div class="games-header">
+            <div class="section-num" data-i18n="section_games">02 / Игры</div>
+            <h2 data-i18n="games_title">Любимые игры</h2>
+        </div>
+        <div class="games-grid">
+            <a href="https://store.steampowered.com/app/1229490/ULTRAKILL/" target="_blank" class="game-card">
+                <div class="game-visual" style="background-image: url('Assets/ULTRAKILL.jpg');"></div>
+                <div class="game-info">
+                    <h4>ULTRAKILL</h4>
+                    <div class="genre" data-i18n="game1_genre">Экшен • Шутер</div>
+                    <p data-i18n="game1_desc">Скоростной шутер с элементами character-action. Ритм, кровь и адреналин.</p>
+                </div>
+            </a>
+
+            <a href="https://store.steampowered.com/app/1144200/Ready_or_Not/" target="_blank" class="game-card">
+                <div class="game-visual" style="background-image: url('Assets/Ready or Not.jpg');"></div>
+                <div class="game-info">
+                    <h4>Ready or Not</h4>
+                    <div class="genre" data-i18n="game2_genre">Тактический шутер</div>
+                    <p data-i18n="game2_desc">Спецназ, зачистка зданий, минимум права на ошибку. Суровая тактика.</p>
+                </div>
+            </a>
+
+            <a href="https://store.steampowered.com/app/493520/GTFO/" target="_blank" class="game-card">
+                <div class="game-visual" style="background-image: url('Assets/GTFO.jpg');"></div>
+                <div class="game-info">
+                    <h4>GTFO</h4>
+                    <div class="genre" data-i18n="game3_genre">Кооперативный хоррор</div>
+                    <p data-i18n="game3_desc">Командный выживач в подземельях. Тишина, тьма и постоянное напряжение.</p>
+                </div>
+            </a>
+
+            <a href="https://store.steampowered.com/app/1601580/Frostpunk_2/" target="_blank" class="game-card">
+                <div class="game-visual" style="background-image: url('Assets/Frostpunk 2.jpg');"></div>
+                <div class="game-info">
+                    <h4>Frostpunk 2</h4>
+                    <div class="genre" data-i18n="game4_genre">Градостроительный симулятор</div>
+                    <p data-i18n="game4_desc">Выживание города в вечной мерзлоте. Сложные решения и цена выживания.</p>
+                </div>
+            </a>
+
+            <a href="https://store.steampowered.com/app/526870/Satisfactory/" target="_blank" class="game-card">
+                <div class="game-visual" style="background-image: url('Assets/Satisfactory.jpg');"></div>
+                <div class="game-info">
+                    <h4>Satisfactory</h4>
+                    <div class="genre" data-i18n="game5_genre">Симулятор строительства</div>
+                    <p data-i18n="game5_desc">Фабрики, конвейеры, автоматизация. Идеальный порядок из хаоса.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- МУЗЫКА -->
+    <section class="music" id="music">
+        <div class="music-header">
+            <div class="section-num" data-i18n="section_music">03 / Музыка</div>
+            <h2 data-i18n="music_title">Плеер</h2>
+        </div>
+
+        <div class="music-player">
+            <div class="player-controls">
+                <div class="track-display">
+                    <div class="track-label" data-i18n="now_playing">Сейчас играет</div>
+                    <div class="track-title" id="currentTitle">—</div>
+                    <div class="track-artist" id="currentArtist">—</div>
+                </div>
+
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-time">
+                    <span id="currentTime">0:00</span>
+                    <span id="totalTime">0:00</span>
+                </div>
+
+                <div class="control-buttons">
+                    <button class="ctrl-btn" onclick="prevTrack()" aria-label="Prev">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+                        </svg>
+                    </button>
+                    <button class="ctrl-btn play-btn" id="playBtn" onclick="togglePlay()" aria-label="Play/Pause">
+                        <svg id="playIcon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        <svg id="pauseIcon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                        </svg>
+                    </button>
+                    <button class="ctrl-btn" onclick="nextTrack()" aria-label="Next">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- ГРОМКОСТЬ -->
+                <div class="volume-control">
+                    <button class="volume-icon" id="volumeIconBtn" onclick="toggleMute()" aria-label="Mute">
+                        <svg id="volOnIcon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                        </svg>
+                        <svg id="volOffIcon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+                        </svg>
+                    </button>
+                    <input type="range" min="0" max="100" value="50" class="volume-slider" id="volumeSlider" aria-label="Volume">
+                    <span class="volume-value" id="volumeValue">50%</span>
+                </div>
+
+                <!-- СПИСОК ТРЕКОВ -->
+                <div class="track-list" id="trackList">
+                    <div class="track-item active" onclick="selectTrack(0)">
+                        <span class="num">01</span>
+                        <span class="name">Tenebre Rosso Sangue</span>
+                        <span class="time">—</span>
+                    </div>
+                    <div class="track-item" onclick="selectTrack(1)">
+                        <span class="num">02</span>
+                        <span class="name">Not For Broadcast</span>
+                        <span class="time">—</span>
+                    </div>
+                    <div class="track-item" onclick="selectTrack(2)">
+                        <span class="num">03</span>
+                        <span class="name">Nico's Shop Theme</span>
+                        <span class="time">—</span>
+                    </div>
+                    <div class="track-item" onclick="selectTrack(3)">
+                        <span class="num">04</span>
+                        <span class="name">Video Game Lobby</span>
+                        <span class="time">—</span>
+                    </div>
+                    <div class="track-item" onclick="selectTrack(4)">
+                        <span class="num">05</span>
+                        <span class="name">Anger</span>
+                        <span class="time">—</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visualizer" id="visualizer"></div>
+
+            <!-- СКРЫТЫЙ АУДИОПЛЕЕР -->
+            <audio id="audioPlayer" preload="metadata"></audio>
+        </div>
+    </section>
+
+    <!-- ПОДВАЛ -->
+    <footer id="contact">
+        <div data-i18n="footer_copy">© 2026 Владимир Лепчиков</div>
+        <div data-i18n="footer_cities">Санкт-Петербург • Якутск</div>
+        <div class="footer-contacts">
+            <a href="https://t.me/Shejoku" target="_blank">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                </svg>
+                Telegram
+            </a>
+            <a href="mailto:vladimerlepchikov4674@gmail.com">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="m22 7-10 5L2 7"/>
+                </svg>
+                Email
+            </a>
+        </div>
+    </footer>
+
+    <!-- ================= JS ================= -->
+    <script>
+        // ============ ПЕРЕВОДЫ ============
+        const translations = {
+            ru: {
+                nav_profile: "Профиль", nav_games: "Игры", nav_music: "Музыка",
+                hero_label: "Студент • Разработчик • Дизайнер",
+                hero_name: "Владимир", hero_surname: "Лепчиков",
+                hero_desc: "Обычный студент в университете, что любит игры, рисование, музыку и кофе.",
+                photo_hint: "Фото • 2026", hero_side: "Избранные проекты / 2024 — 2026",
+                section_profile: "01 / Профиль", about_title: "Обо мне",
+                about_text: "Мне 18 лет, и я изучаю промышленный дизайн и технологии. Верю, что хороший продукт — это баланс между функциональностью и эстетикой. Родился в Якутске, сейчас живу и учусь в Санкт-Петербурге. В свободное время рисую, слушаю музыку и играю в игры.",
+                lbl_born: "Родился", val_born: "01 октября 2007",
+                lbl_age: "Возраст", val_age: "18 лет",
+                lbl_birthplace: "Место рождения", val_birthplace: "Якутск, Республика Саха",
+                lbl_city: "Город", val_city: "Санкт-Петербург",
+                lbl_status: "Статус", val_status: "Студент 2 курса",
+                lbl_group: "Группа", val_group: "МД-20",
+                lbl_uni: "Университет", val_uni: "СПбГУПТД",
+                section_games: "02 / Игры", games_title: "Любимые игры",
+                game1_genre: "Экшен • Шутер", game1_desc: "Скоростной шутер с элементами character-action. Ритм, кровь и адреналин.",
+                game2_genre: "Тактический шутер", game2_desc: "Спецназ, зачистка зданий, минимум права на ошибку. Суровая тактика.",
+                game3_genre: "Кооперативный хоррор", game3_desc: "Командный выживач в подземельях. Тишина, тьма и постоянное напряжение.",
+                game4_genre: "Градостроительный симулятор", game4_desc: "Выживание города в вечной мерзлоте. Сложные решения и цена выживания.",
+                game5_genre: "Симулятор строительства", game5_desc: "Фабрики, конвейеры, автоматизация. Идеальный порядок из хаоса.",
+                section_music: "03 / Музыка", music_title: "Любимая музыка", now_playing: "Сейчас играет",
+                footer_copy: "© 2026 Владимир Лепчиков", footer_cities: "Санкт-Петербург • Якутск"
+            },
+            en: {
+                nav_profile: "Profile", nav_games: "Games", nav_music: "Music",
+                hero_label: "Student • Developer • Designer",
+                hero_name: "Vladimir", hero_surname: "Lepchikov",
+                hero_desc: "An ordinary university student who loves games, drawing, music and coffee.",
+                photo_hint: "Photo • 2026", hero_side: "Selected projects / 2024 — 2026",
+                section_profile: "01 / Profile", about_title: "About me",
+                about_text: "I'm 18 years old and I study industrial design and technology. I believe a good product is a balance between functionality and aesthetics. I was born in Yakutsk, now I live and study in Saint Petersburg. In my free time I draw, listen to music and play games.",
+                lbl_born: "Born", val_born: "October 1, 2007",
+                lbl_age: "Age", val_age: "18 years",
+                lbl_birthplace: "Birthplace", val_birthplace: "Yakutsk, Republic of Sakha",
+                lbl_city: "City", val_city: "Saint Petersburg",
+                lbl_status: "Status", val_status: "2nd year student",
+                lbl_group: "Group", val_group: "MD-20",
+                lbl_uni: "University", val_uni: "SPbGUPTD",
+                section_games: "02 / Games", games_title: "Favorite games",
+                game1_genre: "Action • Shooter", game1_desc: "A fast-paced shooter with character-action elements. Rhythm, blood and adrenaline.",
+                game2_genre: "Tactical shooter", game2_desc: "SWAT, building clearance, no room for mistakes. Harsh tactics.",
+                game3_genre: "Co-op horror", game3_desc: "Team survival in underground tunnels. Silence, darkness and constant tension.",
+                game4_genre: "City-building sim", game4_desc: "Surviving a city in eternal frost. Hard decisions and the cost of survival.",
+                game5_genre: "Building simulator", game5_desc: "Factories, conveyors, automation. Perfect order out of chaos.",
+                section_music: "03 / Music", music_title: "Favorite music", now_playing: "Now playing",
+                footer_copy: "© 2026 Vladimir Lepchikov", footer_cities: "Saint Petersburg • Yakutsk"
+            }
+        };
+
+        let currentLang = localStorage.getItem('lang') || 'ru';
+
+        function applyLang(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) el.textContent = translations[lang][key];
+            });
+            document.getElementById('langBtn').textContent = lang === 'ru' ? 'EN' : 'RU';
+            document.documentElement.lang = lang;
+        }
+
+        function toggleLang() { applyLang(currentLang === 'ru' ? 'en' : 'ru'); }
+
+        // ============ ТЕМА ============
+        let isDark = localStorage.getItem('theme') === 'dark';
+
+        function applyTheme(dark) {
+            isDark = dark;
+            localStorage.setItem('theme', dark ? 'dark' : 'light');
+            document.body.classList.toggle('dark', dark);
+            document.getElementById('themeBtn').textContent = dark ? '☀️' : '🌙';
+        }
+
+        function toggleTheme() { applyTheme(!isDark); }
+
+        // ============ ТРЕКИ ============
+        const tracks = [
+            { title: "Tenebre Rosso Sangue", artist: "Heaven Pierce Her", src: "Music/ultrakill-ost-tenebre-rosso-sangue-p-2.mp3" },
+            { title: "Not For Broadcast", artist: "Pressure OST", src: "Music/Pressure ost - Not For Broadcast.mp3" },
+            { title: "Nico's Shop Theme", artist: "Nico's Nextbots", src: "Music/Nico's Nextbots - Shop theme.mp3" },
+            { title: "Video Game Lobby", artist: "Nico's Nextbots", src: "Music/Nico's Nextbots -  video game lobby.mp3" },
+            { title: "Anger", artist: "Frostpunk 2 OST", src: "Music/frostpunk_2 - Anger.mp3" }
+        ];
+
+        let currentIndex = 0;
+        let isPlaying = false;
+
+        // ============ ВИЗУАЛИЗАТОР ============
+        const visualizer = document.getElementById('visualizer');
+        const TOTAL_BARS = 32;
+        const bars = [];
+
+        for (let i = 0; i < TOTAL_BARS; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'bar';
+            bar.style.height = (10 + Math.random() * 40) + '%';
+            visualizer.appendChild(bar);
+            bars.push(bar);
+        }
+
+        function animateBars() {
+            if (!isPlaying) return;
+            bars.forEach((bar, i) => {
+                const centerFactor = 1 - Math.abs(i - TOTAL_BARS / 2) / (TOTAL_BARS / 2);
+                const baseHeight = 15 + centerFactor * 55;
+                const randomOffset = Math.random() * 30 - 10;
+                const height = Math.max(8, Math.min(95, baseHeight + randomOffset));
+                bar.style.height = height + '%';
+            });
+        }
+
+        let lastUpdate = 0;
+        function loop(timestamp) {
+            if (timestamp - lastUpdate > 100) {
+                animateBars();
+                lastUpdate = timestamp;
+            }
+            requestAnimationFrame(loop);
+        }
+        requestAnimationFrame(loop);
+
+        // ============ АУДИО ============
+        const audio = document.getElementById('audioPlayer');
+
+        function formatTime(sec) {
+            if (isNaN(sec) || sec === Infinity) return '0:00';
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return m + ':' + (s < 10 ? '0' : '') + s;
+        }
+
+        function updateProgress() {
+            if (!audio.duration || isNaN(audio.duration) || audio.duration === Infinity) return;
+            const percent = (audio.currentTime / audio.duration) * 100;
+            document.getElementById('progressFill').style.width = percent + '%';
+            document.getElementById('currentTime').textContent = formatTime(audio.currentTime);
+        }
+
+        function updateTrackDisplay() {
+            const track = tracks[currentIndex];
+            document.getElementById('currentTitle').textContent = track.title;
+            document.getElementById('currentArtist').textContent = track.artist;
+            document.getElementById('currentTime').textContent = '0:00';
+            document.getElementById('totalTime').textContent = '0:00';
+            document.getElementById('progressFill').style.width = '0%';
+
+            document.querySelectorAll('.track-item').forEach((item, i) => {
+                item.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        function loadTrack(index) {
+            currentIndex = index;
+            audio.src = tracks[index].src;
+            audio.load();
+            updateTrackDisplay();
+        }
+
+        function playAudio() {
+            audio.play().then(() => {
+                isPlaying = true;
+                document.getElementById('playIcon').style.display = 'none';
+                document.getElementById('pauseIcon').style.display = 'block';
+                visualizer.classList.remove('paused');
+            }).catch(err => {
+                console.warn('Ошибка воспроизведения:', err);
+            });
+        }
+
+        function togglePlay() {
+            if (audio.paused) {
+                playAudio();
+            } else {
+                audio.pause();
+                isPlaying = false;
+                document.getElementById('playIcon').style.display = 'block';
+                document.getElementById('pauseIcon').style.display = 'none';
+                visualizer.classList.add('paused');
+            }
+        }
+
+        function nextTrack() {
+            currentIndex = (currentIndex + 1) % tracks.length;
+            loadTrack(currentIndex);
+            playAudio();
+        }
+
+        function prevTrack() {
+            currentIndex = (currentIndex - 1 + tracks.length) % tracks.length;
+            loadTrack(currentIndex);
+            playAudio();
+        }
+
+        function selectTrack(index) {
+            loadTrack(index);
+            playAudio();
+        }
+
+        audio.addEventListener('timeupdate', updateProgress);
+        audio.addEventListener('loadedmetadata', () => {
+            document.getElementById('totalTime').textContent = formatTime(audio.duration);
+        });
+        audio.addEventListener('ended', nextTrack);
+
+        document.getElementById('progressBar').addEventListener('click', (e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width;
+            if (audio.duration && !isNaN(audio.duration)) {
+                audio.currentTime = percent * audio.duration;
+            }
+        });
+
+        // ============ ГРОМКОСТЬ ============
+        const volumeSlider = document.getElementById('volumeSlider');
+        const volumeValue = document.getElementById('volumeValue');
+        const volOnIcon = document.getElementById('volOnIcon');
+        const volOffIcon = document.getElementById('volOffIcon');
+
+        let currentVolume = 50;
+        let lastVolume = 50;
+
+        function updateVolumeUI() {
+            volumeSlider.value = currentVolume;
+            volumeValue.textContent = currentVolume + '%';
+            volumeSlider.style.backgroundSize = currentVolume + '% 100%';
+
+            if (currentVolume === 0) {
+                volOnIcon.style.display = 'none';
+                volOffIcon.style.display = 'block';
+            } else {
+                volOnIcon.style.display = 'block';
+                volOffIcon.style.display = 'none';
+            }
+        }
+
+        function setVolume(value) {
+            currentVolume = Math.max(0, Math.min(100, parseInt(value)));
+            if (currentVolume > 0) lastVolume = currentVolume;
+            localStorage.setItem('volume', currentVolume);
+            updateVolumeUI();
+            audio.volume = currentVolume / 100;
+        }
+
+        function toggleMute() {
+            if (currentVolume > 0) {
+                lastVolume = currentVolume;
+                setVolume(0);
+            } else {
+                setVolume(lastVolume || 50);
+            }
+        }
+
+        volumeSlider.addEventListener('input', (e) => setVolume(e.target.value));
+
+        // ============ ИНИЦИАЛИЗАЦИЯ ============
+        document.addEventListener('DOMContentLoaded', () => {
+            applyLang(currentLang);
+            applyTheme(isDark);
+
+            const savedVolume = localStorage.getItem('volume');
+            currentVolume = savedVolume !== null ? parseInt(savedVolume) : 50;
+            audio.volume = currentVolume / 100;
+            updateVolumeUI();
+
+            loadTrack(0);
+        });
+    </script>
+
+</body>
+</html>
